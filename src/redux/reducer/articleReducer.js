@@ -9,7 +9,7 @@ const defaultState = {
 }
 
 export default (state = defaultState, action) => {
-   switch(action.type) {
+   switch (action.type) {
       case 'FETCHING_ARTICLES':
          return {
             ...state,
@@ -28,7 +28,11 @@ export default (state = defaultState, action) => {
       case 'ADD_ARTICLES':
          return {
             ...state,
+            fetching: false,
+            status: 'recebido',
             articles: action.articles
          }
+      default:
+         return state
    }
 }

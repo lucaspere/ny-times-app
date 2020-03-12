@@ -5,7 +5,7 @@ import articleReducer from './reducer/articleReducer';
 
 export default () => {
    const store = createStore(
-      userReducer,
+      articleReducer,
       applyMiddleware(reduxThunk)
    );
 

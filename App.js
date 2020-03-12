@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import { FlatList, StyleSheet, Text, View, TextInput, Button, Image, ScrollView } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { StyleSheet, View } from 'react-native';
+import { Provider } from 'react-redux';
+
+import storeConfig from './src/redux/storeConfig';
+
 import Feed from './src/components/Feed';
-const { Navigator, Screen } = createStackNavigator();
 
-
-const Home = ({navigation}) => <Button title="Ir" onPress={() => navigation.navigate("Science")}/>
+const store = storeConfig();
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Feed />
-    </View>
-
+    <Provider store={store}>
+      <View style={styles.container}>
+        <Feed />
+      </View>
+    </Provider>
   );
 }
 

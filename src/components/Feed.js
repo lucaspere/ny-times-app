@@ -5,28 +5,31 @@ import {
    StyleSheet,
    View,
 } from 'react-native';
+import { connect } from 'react-redux';
+import { getArticles } from '../redux/actions/articleActions';
 
 import ArticleList from './ArticleList';
 
-import { fetchArticles } from '../utils/api';
+const Feed = ({ getArticles, articles, }) => {
 
-const Feed = () => {
-
-   const [isLoading, setIsLoading] = useState(true);
+   const [isFetching, setIsFetching] = useState(true);
    const [error, setError] = useState(false);
-   const [articles, setArticles] = useState([])
+
 
    useEffect(() => {
       const abortController = new AbortController();
 
       const signal = abortController.signal;
 
-      fetchArticles('technology', setArticles, setIsLoading, signal);
+      getArticles('science', signal)
 
-      return () => abortController.abort();
-   }, [articles]);
+      return () => {
+         abortController.abort();
+         setIsFetching(false)
+      }
+   }, [articles, isFetching]);
 
-   if (isLoading) {
+   if (isFetching) {
       return (
          <View style={[styles.containerFeed, { marginTop: 20 }]}>
             <ActivityIndicator color='#fff' size="large" />
@@ -35,7 +38,7 @@ const Feed = () => {
    }
    return (
       <SafeAreaView style={styles.containerFeed}>
-         <ArticleList articles={articles} />
+         <ArticleList articles={articles.results} />
       </SafeAreaView>
    )
 }
@@ -48,4 +51,10 @@ const styles = StyleSheet.create({
    },
 });
 
-export default Feed;
+const mapStateToProps = ({ articles }) => ({ articles });
+
+const mapDispatchToProps = (dispatch) => ({
+   getArticles: (category, signal) => dispatch(getArticles(category, signal))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Feed);

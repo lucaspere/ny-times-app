@@ -18,14 +18,14 @@ const requestFailed = (error) => ({
    error
 });
 
-const getArticles = (signal) => (
+export const getArticles = (category, signal) => (
    dispatch => {
 
       dispatch(fetchingArtcles());
 
       axios.get(`https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=y2bDTjVTbs6yDi7IOyYl1DLjeKbQwT5c`, { signal })
-         .then(response => response.json())
-         .then(response => addArticles(response))
-         .catch(error => requestFailed({ isError: true, errorMessage: "Falha ao buscar arquivos" }))
+         .then(response => dispatch(addArticles(response)),
+            error => requestFailed({ isError: true, errorMessage: "Falha ao buscar arquivos" })
+         )
    }
 );
