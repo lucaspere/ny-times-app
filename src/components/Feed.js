@@ -2,27 +2,40 @@ import React, { useState, useEffect } from 'react';
 import {
    SafeAreaView,
    ActivityIndicator,
-   Text,
-   ViewPropTypes,
    StyleSheet,
    View,
-   ImageBackground
 } from 'react-native';
 
 import ArticleList from './ArticleList';
 
+import { fetchArticles } from '../utils/api';
+
 const Feed = () => {
-console.log("oi")
-   const [isLoading, setIsLoading] = useState(false);
+
+   const [isLoading, setIsLoading] = useState(true);
    const [error, setError] = useState(false);
    const [articles, setArticles] = useState([])
 
+   useEffect(() => {
+      const abortController = new AbortController();
+
+      const signal = abortController.signal;
+
+      fetchArticles('technology', setArticles, setIsLoading, signal);
+
+      return () => abortController.abort();
+   }, [articles]);
+
    if (isLoading) {
-      return <ActivityIndicator styles={{ marginTop: 20 }} size="large" />
+      return (
+         <View style={[styles.containerFeed, { marginTop: 20 }]}>
+            <ActivityIndicator color='#fff' size="large" />
+         </View>
+      )
    }
    return (
       <SafeAreaView style={styles.containerFeed}>
-         <ArticleList />
+         <ArticleList articles={articles} />
       </SafeAreaView>
    )
 }
