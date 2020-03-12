@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import ArticleList from './ArticleList';
+
 import { data } from '../database/data'
 
 const Feed = () => {
@@ -25,30 +26,7 @@ const Feed = () => {
    }
    return (
       <SafeAreaView style={styles.containerFeed}>
-         <View style={{borderTopColor: 'black', borderTopWidth: 1}}>
-            <ArticleList articles={articles} />
-            <ImageBackground
-               source={{ uri }}
-               style={styles.imageContainer}
-               imageStyle={StyleSheet.absoluteFill}
-            >
-               <View>
-                  <Text style={styles.title}>{data[0].title}</Text>
-               </View>
-            </ImageBackground>
-         </View>
-         <View style={{borderTopColor: 'white', borderTopWidth: 1}}>
-            <ArticleList articles={articles} />
-            <ImageBackground
-               source={{ uri }}
-               style={styles.imageContainer}
-               imageStyle={StyleSheet.absoluteFill}
-            >
-               <View>
-                  <Text style={styles.title}>{data[0].title}</Text>
-               </View>
-            </ImageBackground>
-         </View>
+         <ArticleList />
       </SafeAreaView>
    )
 }
@@ -57,19 +35,8 @@ const styles = StyleSheet.create({
    containerFeed: {
       flex: 1,
       marginTop: 1,
+      backgroundColor: "rgba(5,28,45,0.65)"
    },
-   imageContainer: {
-      width: 'auto',
-      height: 250,
-      justifyContent: 'flex-end'
-   },
-   title: {
-      color: "#fff",
-      fontSize: 25,
-      fontWeight: 'bold',
-      textAlign: 'center',
-      backgroundColor: 'rgba(0,0,0,0.35)'
-   }
 });
 
 export default Feed;

@@ -1,5 +1,6 @@
-export const data =  [
+export const data = [
    {
+      "id": 0,
       "section": "technology",
       "subsection": "personaltech",
       "title": "Samsung Galaxy Z Flip Review: A Folding Phone That’s a Dud",
@@ -82,6 +83,7 @@ export const data =  [
       "short_url": "https://nyti.ms/39CmiAx"
    },
    {
+      "id": 1,
       "section": "us",
       "subsection": "",
       "title": "Remote Learning Comes to America as Coronavirus Shuts Schools",
@@ -159,5 +161,6 @@ export const data =  [
          }
       ],
       "short_url": "https://nyti.ms/2TUU5y5"
-   }
+   },
+   { "id": 3,"section": "technology", "subsection": "", "title": "Sorry, but Working From Home Is Overrated", "abstract": "Home-cooked lunches and no commuting while we deal with coronavirus can’t compensate for what’s lost in creativity.", "url": "https://www.nytimes.com/2020/03/10/technology/working-from-home.html", "uri": "nyt://article/37834ada-33f0-5f20-844d-e2beeeaccf86", "byline": "By Kevin Roose", "item_type": "Article", "updated_date": "2020-03-11T00:30:42-04:00", "created_date": "2020-03-10T10:53:17-04:00", "published_date": "2020-03-10T10:53:17-04:00", "material_type_facet": "", "kicker": "The Shift", "des_facet": ["Work-Life Balance", "Telecommuting", "Productivity", "Workplace Environment", "Coronavirus (2019-nCoV)", "Executives and Management (Theory)", "Videophones and Videoconferencing"], "org_facet": ["Automattic", "Humu Inc"], "per_facet": [], "geo_facet": [], "multimedia": [{ "url": "https://static01.nyt.com/images/2020/03/11/business/11roose/11roose-superJumbo.jpg", "format": "superJumbo", "height": 2048, "width": 2048, "type": "image", "subtype": "photo", "caption": "", "copyright": "Julian Glander" }, { "url": "https://static01.nyt.com/images/2020/03/11/business/11roose/11roose-thumbStandard.jpg", "format": "Standard Thumbnail", "height": 75, "width": 75, "type": "image", "subtype": "photo", "caption": "", "copyright": "Julian Glander" }, { "url": "https://static01.nyt.com/images/2020/03/11/business/11roose/11roose-thumbLarge.jpg", "format": "thumbLarge", "height": 150, "width": 150, "type": "image", "subtype": "photo", "caption": "", "copyright": "Julian Glander" }, { "url": "https://static01.nyt.com/images/2020/03/11/business/11roose/11roose-mediumThreeByTwo210.jpg", "format": "mediumThreeByTwo210", "height": 140, "width": 210, "type": "image", "subtype": "photo", "caption": "", "copyright": "Julian Glander" }, { "url": "https://static01.nyt.com/images/2020/03/11/business/11roose/11roose-articleInline.jpg", "format": "Normal", "height": 190, "width": 190, "type": "image", "subtype": "photo", "caption": "", "copyright": "Julian Glander" }], "short_url": "https://nyti.ms/3aHNVbr" }
 ]
