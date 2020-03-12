@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList, View, ImageBackground, Text, StyleSheet } from 'react-native';
 
-import { data } from '../database/data'
+import { data } from '../../database/data'
 
 import Article from './Article';
 

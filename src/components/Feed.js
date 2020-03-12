@@ -11,16 +11,12 @@ import {
 
 import ArticleList from './ArticleList';
 
-import { data } from '../database/data'
-
 const Feed = () => {
-
+console.log("oi")
    const [isLoading, setIsLoading] = useState(false);
    const [error, setError] = useState(false);
    const [articles, setArticles] = useState([])
 
-
-   const uri = data[1].multimedia[0].url
    if (isLoading) {
       return <ActivityIndicator styles={{ marginTop: 20 }} size="large" />
    }
