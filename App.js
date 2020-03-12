@@ -6,14 +6,14 @@ import storeConfig from './src/redux/storeConfig';
 
 import Feed from './src/components/Feed';
 
+import RootStacks from './src/routers/RootStacks';
+
 const store = storeConfig();
 
 const App = () => {
   return (
     <Provider store={store}>
-      <View style={styles.container}>
-        <Feed />
-      </View>
+      <RootStacks />
     </Provider>
   );
 }
