@@ -1,9 +1,11 @@
 const defaultState = {
-   section: '',
-   subsection: '',
-   title: '',
-   byline: '',
-   multimedia: []
+   fetching: false,
+   status: '',
+   articles: [],
+   error: {
+      isError: false,
+      errorMessage: ''
+   }
 }
 
 export default (state = defaultState, action) => {
