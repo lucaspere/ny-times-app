@@ -6,8 +6,6 @@ const REQUEST_FAILED = "REQUEST_FAILED";
 
 const fetchingArtcles = () => ({
    type: FETCHING_ARTICLES,
-   fetching: true,
-   status: 'fetching'
 });
 
 const addArticles = ({ data }) => ({
