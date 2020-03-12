@@ -1,24 +1,50 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-const { Navigator, Screen } = createStackNavigator();
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+const { Navigator, Screen } = createMaterialTopTabNavigator();
 
-const Technology = (props) => {
-   console.log(props)
-   return (<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text >Oi</Text>
-   </View>
-   )}
+import Feed from '../components/Feed';
+import Technology from '../screens/Technology';
+
+
+const Science = (props) => {
+
+   return (
+      <View style={styles.container}>
+         <Feed category="science" />
+      </View>
+   )
+}
+
 const RootStacks = () => {
 
    return (
       <NavigationContainer>
-         <Navigator>
-            <Screen name="TECHNOLOGY" component={Technology}></Screen>
+         <StatusBar showHideTransition='slide'/>
+         <Navigator
+            lazy={true}
+            tabBarOptions={{
+               activeTintColor: '#fff',
+               labelStyle: { fontSize: 15 },
+               style: { backgroundColor: '#051C2D' },
+               indicatorStyle: {backgroundColor: 'white'},
+               tabStyle: {marginTop: 20}
+            }}
+         >
+            <Screen name="Technology" component={Technology}></Screen>
+            <Screen name="Science" component={Science}></Screen>
          </Navigator>
       </NavigationContainer>
    )
 }
+
+const styles = StyleSheet.create({
+   container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      justifyContent: 'center',
+   },
+});
 
 export default RootStacks;

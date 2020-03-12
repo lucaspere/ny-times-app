@@ -10,7 +10,7 @@ import { getArticles } from '../redux/actions/articleActions';
 
 import ArticleList from './ArticleList';
 
-const Feed = ({ getArticles, articles, }) => {
+const Feed = ({ category, getArticles, articles, }) => {
 
    const [isFetching, setIsFetching] = useState(true);
    const [error, setError] = useState(false);
@@ -21,7 +21,7 @@ const Feed = ({ getArticles, articles, }) => {
 
       const signal = abortController.signal;
 
-      getArticles('science', signal)
+      getArticles(category, signal)
 
       return () => {
          abortController.abort();
@@ -31,14 +31,15 @@ const Feed = ({ getArticles, articles, }) => {
 
    if (isFetching) {
       return (
-         <View style={[styles.containerFeed, { marginTop: 20 }]}>
+         <View style={styles.containerFeed}>
             <ActivityIndicator color='#fff' size="large" />
          </View>
       )
    }
+
    return (
       <SafeAreaView style={styles.containerFeed}>
-         <ArticleList articles={articles.results} />
+         <ArticleList articles={articles} />
       </SafeAreaView>
    )
 }

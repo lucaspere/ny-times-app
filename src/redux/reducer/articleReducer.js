@@ -30,7 +30,7 @@ export default (state = defaultState, action) => {
             ...state,
             fetching: false,
             status: 'recebido',
-            articles: action.articles
+            articles: action.articles.results
          }
       default:
          return state
