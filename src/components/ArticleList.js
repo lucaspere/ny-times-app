@@ -1,7 +1,6 @@
 import React from 'react';
-import { FlatList, View, ImageBackground, Text, StyleSheet } from 'react-native';
+import { FlatList } from 'react-native';
 
-import {getKey} from '../utils/getKey';
 import Article from './Article';
 
 const ArticleList = ({ category, articles }) => {
@@ -12,7 +11,7 @@ const ArticleList = ({ category, articles }) => {
 
       return idPost.toString();
    }
-   const renderItem = ({ item}) => {
+   const renderItem = ({ item }) => {
 
       if (item.section === category) {
          return (

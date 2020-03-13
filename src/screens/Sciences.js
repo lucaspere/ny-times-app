@@ -10,7 +10,6 @@ const Sciences = (props) => {
       <View style={{ flex: 1 }}>
          <ScienceFeed
             route={props.route}
-            navigation={props.navigation}
          />
          <ModalLayout />
       </View>

@@ -10,7 +10,6 @@ const Technology = (props) => {
       <View style={{ flex: 1 }}>
          <TechnologyFeed
             route={props.route}
-            navigation={props.navigation}
          />
          <ModalLayout />
       </View>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Modal, TouchableOpacity, Text, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import Constants from 'expo-constants';
 import { setModal } from '../redux/actions/articleActions';
 
 const ModalLayout = ({ title, abstract, showModal, isOpen }) => {
