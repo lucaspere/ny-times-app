@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, ActivityIndicator, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-
+import { articleStyle as styles} from '../styles/articleStyle';
 import { setModal, setAbstract } from '../redux/actions/articleActions';
 
 import InfoRow from './InfoRow';
@@ -12,7 +12,7 @@ const Article = (props) => {
 
    const { setAbstractValue, setModalValue } = props;
 
-   const {title, image, section, byline, date, abstract} = props;
+   const { title, image, section, byline, date, abstract } = props;
 
    return (
       <View style={styles.articleContainer}>
@@ -44,32 +44,6 @@ const Article = (props) => {
       </View>
    )
 }
-
-const styles = StyleSheet.create({
-   articleContainer: {
-      marginVertical: 2,
-      shadowColor: "#fff",
-      shadowOffset: {
-         width: 0,
-         height: 8,
-      },
-      shadowOpacity: 0.44,
-      shadowRadius: 10.32,
-      elevation: 16,
-   },
-   imageContainer: {
-      width: 'auto',
-      height: 250,
-      justifyContent: 'flex-end'
-   },
-   title: {
-      color: "#fff",
-      fontSize: 25,
-      fontWeight: 'bold',
-      textAlign: 'center',
-      backgroundColor: 'rgba(0,0,0,0.35)'
-   }
-});
 
 const mapStateToProps = ({ showModal }) => ({ showModal });
 const mapDispatchTopProps = (dispatch) => ({

@@ -1,14 +1,8 @@
 const defaultState = {
-   fetching: false,
    showModal: false,
-   status: '',
    title: '',
    abstract: '',
    articles: [],
-   error: {
-      isError: false,
-      errorMessage: ''
-   }
 }
 
 export default (state = defaultState, action) => {
@@ -23,26 +17,6 @@ export default (state = defaultState, action) => {
          return {
             ...state,
             showModal: !state.showModal
-         }
-      case 'FETCHING_ARTICLES':
-         return {
-            ...state,
-            fetching: true,
-            status: 'fetching'
-         }
-
-      case 'REQUEST_FAILED':
-         return {
-            ...state,
-            error: {
-               isError: true,
-               errorMessage: 'Falha ao buscar artigos'
-            }
-         }
-      case 'ADD_ARTICLES':
-         return {
-            ...state,
-            articles: action.articles
          }
       default:
          return state

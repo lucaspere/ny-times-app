@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { View } from 'react-native';
 
 import TechnologyFeed from '../components/TechnologyFeed';
-import { fetchTechnologyArticles } from '../utils/api';
+import ModalLayout from '../components/ModalLayout';
 
 const Technology = (props) => {
 
    return (
-      <TechnologyFeed
-         route={props.route}
-         navigation={props.navigation}
-      />
+      <View style={{ flex: 1 }}>
+         <TechnologyFeed
+            route={props.route}
+            navigation={props.navigation}
+         />
+         <ModalLayout />
+      </View>
+
    )
 }
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
+import { Modal, TouchableOpacity, Text, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import Constants from 'expo-constants';
 import { setModal } from '../redux/actions/articleActions';
 
-const ModalLayout = ({ title, abstract, showModal }) => {
+const ModalLayout = ({ title, abstract, showModal, isOpen }) => {
 
    const TouchableOpacityStyle = {
       width: 80,
@@ -14,26 +14,32 @@ const ModalLayout = ({ title, abstract, showModal }) => {
    }
 
    return (
-      <View style={styles.modalContainer}>
-         <View style={styles.backBotton}>
-            <TouchableOpacity
-               onPress={() => showModal()}
-               style={TouchableOpacityStyle}
-            >
+      <Modal
+         visible={isOpen}
+         animationType="slide"
+         onRequestClose={() => showModal()}
+      >
+         <View style={styles.modalContainer}>
+            <View style={styles.backBotton}>
+               <TouchableOpacity
+                  onPress={() => showModal()}
+                  style={TouchableOpacityStyle}
+               >
 
-               <Text style={styles.textBotton}>Voltar</Text>
-            </TouchableOpacity>
-         </View>
+                  <Text style={styles.textBotton}>Voltar</Text>
+               </TouchableOpacity>
+            </View>
 
-         <View style={styles.bodyText}>
-            <View style={{ marginTop: 20 }}>
-               <Text style={styles.modalTitle}>{title}</Text>
+            <View style={styles.bodyText}>
+               <View style={{ marginTop: 20 }}>
+                  <Text style={styles.modalTitle}>{title}</Text>
+               </View>
+               <View style={{ marginTop: 10 }}>
+                  <Text style={styles.modalAbstract}>{abstract}</Text>
+               </View>
             </View>
-            <View style={{ marginTop: 10 }}>
-               <Text style={styles.modalAbstract}>{abstract}</Text>
-            </View>
-         </View>
-      </View >
+         </View >
+      </Modal>
    )
 }
 
@@ -71,9 +77,10 @@ const styles = StyleSheet.create({
    }
 });
 
-const mapStateToProps = ({ title, abstract }) => ({
+const mapStateToProps = ({ title, abstract, showModal }) => ({
    title,
-   abstract
+   abstract,
+   isOpen: showModal
 });
 
 const mapDispatchTopProps = (dispatch) => ({

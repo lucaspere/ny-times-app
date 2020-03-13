@@ -7,7 +7,7 @@ import RootStacks from './src/routers/RootStacks';
 
 const store = storeConfig();
 
-store.subscribe(() => console.log(store.getState()))
+store.subscribe(() => console.log(store.getState().showModal))
 const App = () => {
   return (
     <Provider store={store}>
