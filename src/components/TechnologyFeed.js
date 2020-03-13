@@ -8,9 +8,23 @@ import {
    TouchableOpacity
 } from 'react-native';
 
+import { fetchTechnologyArticles } from '../utils/api';
 import ArticleList from './ArticleList';
 
-const Feed = ({ route, navigation, loading, error, articles }) => {
+const TechnologyFeed = ({ route, navigation}) => {
+
+   const [articles, setArticles] = useState([]);
+   const [loading, setLoading] = useState(true);
+   const [error, setError] = useState({ isError: false, errorMessage: 'Falha ao buscar artigos' });
+
+   useEffect(() => {
+      const abortController = new AbortController();
+      const signal = abortController.signal;
+
+      fetchTechnologyArticles(setLoading, setArticles, setError, signal);
+
+      return () => abortController.abort();
+   }, [loading], [articles], [error]);
 
    if (error.isError) {
       return (
@@ -87,4 +101,4 @@ const styles = StyleSheet.create({
    }
 });
 
-export default Feed;
+export default TechnologyFeed;
