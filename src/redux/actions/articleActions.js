@@ -20,9 +20,9 @@ const fetchingArtcles = () => ({
    type: FETCHING_ARTICLES,
 });
 
-const addArticles = ({ data }) => ({
+const addArticles = ({ articles }) => ({
    type: ADD_ARTICLES,
-   articles: data
+   articles
 });
 
 const requestFailed = (error) => ({

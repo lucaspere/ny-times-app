@@ -6,16 +6,19 @@ import { setModal, setAbstract } from '../redux/actions/articleActions';
 
 import InfoRow from './InfoRow';
 
-const Article = ({ setAbstractValue, setModalValue, title, image, section, subsection, byline, date, abstract }) => {
+const Article = (props) => {
 
    const [loading, setLoading] = useState(true);
+
+   const { setAbstractValue, setModalValue } = props;
+
+   const {title, image, section, byline, date, abstract} = props;
 
    return (
       <View style={styles.articleContainer}>
          <InfoRow
             publishedAt={date}
             section={section}
-            subsection={subsection}
             byline={byline} />
          <ActivityIndicator
             style={StyleSheet.absoluteFill}

@@ -42,9 +42,7 @@ export default (state = defaultState, action) => {
       case 'ADD_ARTICLES':
          return {
             ...state,
-            fetching: false,
-            status: 'recebido',
-            articles: action.articles.results
+            articles: action.articles
          }
       default:
          return state
