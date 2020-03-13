@@ -11,12 +11,11 @@ const InfoRow = ({ section, subsection, byline, publishedAt }) => {
 
    return (
       <View style={styles.containerFeed}>
-         <View style={styles.sections}>
-            <Text style={styles.section}>{section}</Text>
-            <Text style={styles.subsection}>{subsection}</Text>
+         <View style={styles.authorContainer}>
+            <Text textBreakStrategy="highQuality" style={styles.byline}>{byline}</Text>
          </View>
          <View style={styles.articleInfo}>
-            <Text style={styles.byline}>{byline}</Text>
+            <Text style={styles.section}>{section}</Text>
             <Text style={styles.published_date}>{formmatedDate}</Text>
          </View>
       </View>
@@ -26,36 +25,31 @@ const InfoRow = ({ section, subsection, byline, publishedAt }) => {
 const styles = StyleSheet.create({
    containerFeed: {
       height: 50,
-      flexDirection: 'row',
+      flexDirection: 'column',
       paddingHorizontal: 10,
-
       justifyContent: 'space-between',
       backgroundColor: '#051C2D',
    },
-   sections: {
-      marginLeft: 5,
-      flexDirection: 'column',
-      justifyContent: 'space-around',
+   authorContainer: {
+      flex: 1
    },
    section: {
-      fontSize: 20,
-      fontWeight: 'bold',
-      color: 'white'
-   },
-   subsection: {
-      fontSize: 14,
+      fontSize: 16,
       color: 'white'
    },
    articleInfo: {
-      flexDirection: 'column',
-      justifyContent: 'space-around',
+      flexDirection: 'row',
+      justifyContent: 'space-evenly',
+      alignItems: 'center',
+      padding: 5,
    },
    byline: {
+      textAlign: 'center',
       fontSize: 16,
       color: 'white'
    },
    published_date: {
-      fontSize: 12,
+      fontSize: 16,
       color: 'white'
    },
 
