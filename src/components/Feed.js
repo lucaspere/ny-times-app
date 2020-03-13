@@ -5,31 +5,12 @@ import {
    StyleSheet,
    View,
 } from 'react-native';
-import { connect } from 'react-redux';
-import { getArticles } from '../redux/actions/articleActions';
 
 import ArticleList from './ArticleList';
 
-const Feed = ({ category, getArticles, articles, }) => {
+const Feed = ({ category, articles }) => {
 
-   const [isFetching, setIsFetching] = useState(true);
-   const [error, setError] = useState(false);
-
-
-   useEffect(() => {
-      const abortController = new AbortController();
-
-      const signal = abortController.signal;
-
-      getArticles(category, signal)
-
-      return () => {
-         abortController.abort();
-         setIsFetching(false)
-      }
-   }, [articles, isFetching]);
-
-   if (isFetching) {
+   if (false) {
       return (
          <View style={styles.containerFeed}>
             <ActivityIndicator color='#fff' size="large" />
@@ -39,7 +20,7 @@ const Feed = ({ category, getArticles, articles, }) => {
 
    return (
       <SafeAreaView style={styles.containerFeed}>
-         <ArticleList articles={articles} />
+         <ArticleList category={category} articles={articles} />
       </SafeAreaView>
    )
 }
@@ -52,10 +33,4 @@ const styles = StyleSheet.create({
    },
 });
 
-const mapStateToProps = ({ articles }) => ({ articles });
-
-const mapDispatchToProps = (dispatch) => ({
-   getArticles: (category, signal) => dispatch(getArticles(category, signal))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Feed);
+export default Feed;

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import Feed from '../components/Feed';
-import { fetchArticles } from '../utils/api';
+import {fetchArticles} from '../utils/api';
 
-const Technology = (props) => {
+const Sciences = (props) => {
 
    const [articles, setArticles] = useState([]);
 
@@ -20,7 +20,7 @@ const Technology = (props) => {
    return (
       <View style={styles.container}>
          <Feed articles={articles}
-            category="technology" />
+            category="science" />
       </View>
    )
 }
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
    },
 });
 
-export default Technology;
+export default Sciences;

@@ -4,7 +4,7 @@ import { FlatList, View, ImageBackground, Text, StyleSheet } from 'react-native'
 
 import Article from './Article';
 
-const ArticleList = ({ articles }) => {
+const ArticleList = ({ category, articles }) => {
 
    const keyExtractor = ({ uri }) => {
 
@@ -13,8 +13,6 @@ const ArticleList = ({ articles }) => {
       return idPost.toString();
    }
    const renderItem = ({ item: { id, section, subsection, title, byline, multimedia } }) => {
-
-      if (section === "technology" || section === "science") {
 
          return (
             <Article
@@ -29,11 +27,14 @@ const ArticleList = ({ articles }) => {
             />
 
          )
-      }
+      
    }
+
+   const filteredArticles = articles.filter(article => article.section === category);
+   
    return (
       <FlatList
-         data={articles}
+         data={filteredArticles}
          renderItem={renderItem}
          keyExtractor={keyExtractor}
       />
