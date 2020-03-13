@@ -26,7 +26,7 @@ const Sciences = (props) => {
          </SafeAreaView>
       )
    }
-console.log(articles)
+
    return (
       <SafeAreaView style={styles.container}>
          <ArticleList articles={articles}

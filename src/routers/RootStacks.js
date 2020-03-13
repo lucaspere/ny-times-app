@@ -3,7 +3,7 @@ import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 const { Navigator, Screen } = createMaterialTopTabNavigator();
-
+import Constants from 'expo-constants'
 
 import Technology from '../screens/Technology';
 import Sciences from '../screens/Sciences';
@@ -16,7 +16,7 @@ const RootStacks = () => {
       labelStyle: { fontSize: 15 },
       style: { backgroundColor: '#051C2D' },
       indicatorStyle: { backgroundColor: 'white' },
-      tabStyle: { marginTop: 20 }
+      tabStyle: { marginTop: Constants.statusBarHeight }
    }
 
    return (
@@ -26,8 +26,20 @@ const RootStacks = () => {
             lazy={true}
             tabBarOptions={navigatorConfig}
          >
-            <Screen name="Technology" component={Technology}></Screen>
-            <Screen name="Science" component={Sciences}></Screen>
+            <Screen
+               name="Technology"
+               component={Technology}
+               options={{
+                  tabBarLabel: "Tecnologia"
+               }}
+            />
+            <Screen
+               name="Science"
+               component={Sciences}
+               options={{
+                  tabBarLabel: "Ciências"
+               }}
+            />
          </Navigator>
       </NavigationContainer>
    )
