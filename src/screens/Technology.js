@@ -14,23 +14,20 @@ const Technology = (props) => {
       const abortController = new AbortController();
       const signal = abortController.signal;
 
-      fetchTechnologyArticles(setLoading, setArticles, setError, "technology", signal);
+      fetchTechnologyArticles(setLoading, setArticles, setError, signal);
 
       return () => abortController.abort();
    }, [loading], [articles], [error]);
 
-console.log(props)
    return (
       <Feed
          route={props.route}
          navigation={props.navigation}
          articles={articles}
          loading={loading}
-         error={error} />
+         error={error}
+      />
    )
 }
-
-
-
 
 export default Technology;

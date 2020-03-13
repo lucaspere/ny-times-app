@@ -1,15 +1,15 @@
 import axios from 'axios';
 
-export const fetchTechnologyArticles = async (setIsLoading, setArticles, setError, category, signal) => {
+export const fetchTechnologyArticles = async (setIsLoading, setArticles, setError, signal) => {
 
    try {
 
-      const { data: { results: articles } } = await axios.get(`https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=y2bDTjVTbs6yDi7IOyYl1DLjeKbQwT5c`, { signal });
+      const { data: { results: articles } } = await axios.get(`https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=y2bDTjVTbs6yDi7IOyYl1DLjeKbQwT5c`, { signal });
 
       if(articles.length === 0) {
          setError({
             isError: true,
-            errorMessage: "Falha ao buscar artigos"
+            errorMessage: "Falha ao buscar artigos tecnológicos"
          })
       }
 
@@ -24,12 +24,12 @@ export const fetchScienceArticles = async (setIsLoading, setArticles, setError, 
 
    try {
 
-      const { data: { results: articles } } = await axios.get(`https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=y2bDTjVTbs6yDi7IOyYl1DLjeKbQwT5c`, { signal });
+      const { data: { results: articles } } = await axios.get(`https://api.nytimes.com/svc/topstories/v2/science.json?api-key=y2bDTjVTbs6yDi7IOyYl1DLjeKbQwT5c`, { signal });
 
       if(articles.length === 0) {
          setError({
             isError: true,
-            errorMessage: "Falha ao buscar artigos"
+            errorMessage: "Falha ao buscar artigos científicos"
          })
       }
 
