@@ -3,13 +3,14 @@ import { View, ActivityIndicator, StyleSheet, ImageBackground, Text } from 'reac
 
 import InfoRow from './InfoRow';
 
-const Article = ({ title, image, section, subsection, byline }) => {
+const Article = ({ title, image, section, subsection, byline, date }) => {
 
    const [loading, setLoading] = useState(true);
 
    return (
       <View style={styles.articleContainer}>
          <InfoRow
+            publishedAt={date}
             section={section}
             subsection={subsection}
             byline={byline} />

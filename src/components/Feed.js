@@ -10,15 +10,7 @@ import {
 
 import ArticleList from './ArticleList';
 
-const Feed = ({ route, navigation, loading, error, articles}) => {
-
-   if (loading) {
-      return (
-         <SafeAreaView style={styles.container}>
-            <ActivityIndicator color='#fff' size="large" />
-         </SafeAreaView>
-      )
-   }
+const Feed = ({ route, navigation, loading, error, articles }) => {
 
    if (error.isError) {
       return (
@@ -33,6 +25,14 @@ const Feed = ({ route, navigation, loading, error, articles}) => {
                <Text style={styles.buttonMessage}>Tentar novamente</Text>
             </TouchableOpacity>
 
+         </SafeAreaView>
+      )
+   }
+
+   if (loading) {
+      return (
+         <SafeAreaView style={styles.container}>
+            <ActivityIndicator color='#fff' size="large" />
          </SafeAreaView>
       )
    }

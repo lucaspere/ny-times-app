@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, SafeAreaView, ActivityIndicator, Text, TouchableOpacity } from 'react-native';
 
 import Feed from '../components/Feed';
 import { fetchTechnologyArticles } from '../utils/api';

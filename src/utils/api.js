@@ -20,7 +20,7 @@ export const fetchTechnologyArticles = async (setIsLoading, setArticles, setErro
    }
 
 }
-export const fetchScienceArticles = async (setIsLoading, setArticles, setError, category, signal) => {
+export const fetchScienceArticles = async (setIsLoading, setArticles, setError, signal) => {
 
    try {
 

@@ -12,11 +12,12 @@ const ArticleList = ({ category, articles }) => {
 
       return idPost.toString();
    }
-   const renderItem = ({ item: { id, section, subsection, title, byline, multimedia } }) => {
+   const renderItem = ({ item: { published_date: date, section, subsection, title, byline, multimedia } }) => {
 
       if (section === category) {
          return (
             <Article
+               date={date}
                title={title}
                section={section}
                subsection={subsection}
