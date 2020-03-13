@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList, View, ImageBackground, Text, StyleSheet } from 'react-native';
 
-
+import {getKey} from '../utils/getKey';
 import Article from './Article';
 
 const ArticleList = ({ category, articles }) => {
@@ -12,11 +12,12 @@ const ArticleList = ({ category, articles }) => {
 
       return idPost.toString();
    }
-   const renderItem = ({ item: { published_date: date, section, subsection, title, byline, multimedia } }) => {
+   const renderItem = ({ item: { published_date: date, section, subsection, title, byline, multimedia, abstract } }) => {
 
       if (section === category) {
          return (
             <Article
+               abstract={abstract}
                date={date}
                title={title}
                section={section}

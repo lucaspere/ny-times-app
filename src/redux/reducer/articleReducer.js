@@ -1,6 +1,9 @@
 const defaultState = {
    fetching: false,
+   showModal: false,
    status: '',
+   title: '',
+   abstract: '',
    articles: [],
    error: {
       isError: false,
@@ -10,6 +13,17 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
    switch (action.type) {
+      case 'SET_ABSTRACT':
+         return {
+            ...state,
+            title: action.title,
+            abstract: action.abstract
+         }
+      case 'SET_MODAL':
+         return {
+            ...state,
+            showModal: !state.showModal
+         }
       case 'FETCHING_ARTICLES':
          return {
             ...state,

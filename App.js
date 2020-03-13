@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
 import { Provider } from 'react-redux';
 
 import storeConfig from './src/redux/storeConfig';
@@ -8,6 +7,7 @@ import RootStacks from './src/routers/RootStacks';
 
 const store = storeConfig();
 
+store.subscribe(() => console.log(store.getState()))
 const App = () => {
   return (
     <Provider store={store}>

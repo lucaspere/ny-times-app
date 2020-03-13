@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { View, ActivityIndicator, StyleSheet, ImageBackground, Text } from 'react-native';
+import { View, ActivityIndicator, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
+
+import { setModal, setAbstract } from '../redux/actions/articleActions';
 
 import InfoRow from './InfoRow';
 
-const Article = ({ title, image, section, subsection, byline, date }) => {
+const Article = ({ setAbstractValue, setModalValue, title, image, section, subsection, byline, date, abstract }) => {
 
    const [loading, setLoading] = useState(true);
 
@@ -26,9 +29,14 @@ const Article = ({ title, image, section, subsection, byline, date }) => {
             imageStyle={StyleSheet.absoluteFill}
             onLoad={() => setLoading(false)}
          >
-            <View>
+            <TouchableOpacity
+               onPress={() => {
+                  setModalValue()
+                  setAbstractValue(title, abstract);
+               }}
+            >
                <Text style={styles.title}>{title}</Text>
-            </View>
+            </TouchableOpacity>
          </ImageBackground>
       </View>
    )
@@ -60,5 +68,9 @@ const styles = StyleSheet.create({
    }
 });
 
-
-export default Article;
+const mapStateToProps = ({ showModal }) => ({ showModal });
+const mapDispatchTopProps = (dispatch) => ({
+   setModalValue: () => dispatch(setModal()),
+   setAbstractValue: (title, abstract) => dispatch(setAbstract(title, abstract))
+})
+export default connect(mapStateToProps, mapDispatchTopProps)(Article);
