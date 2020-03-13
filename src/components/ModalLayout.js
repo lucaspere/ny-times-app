@@ -24,7 +24,6 @@ const ModalLayout = ({ title, abstract, showModal, isOpen }) => {
                   onPress={() => showModal()}
                   style={TouchableOpacityStyle}
                >
-
                   <Text style={styles.textBotton}>Voltar</Text>
                </TouchableOpacity>
             </View>

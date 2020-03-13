@@ -11,7 +11,6 @@ const Sciences = (props) => {
          <ScienceFeed
             route={props.route}
          />
-         <ModalLayout />
       </View>
    )
 }
