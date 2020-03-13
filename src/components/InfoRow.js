@@ -1,18 +1,18 @@
 import React from 'react';
-import { View, FlatList, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import dayjs from 'dayjs';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 
 dayjs.extend(localizedFormat);
 
-const InfoRow = ({ section, subsection, byline, publishedAt }) => {
+const InfoRow = ({ section, byline, publishedAt }) => {
 
    const formmatedDate = dayjs(publishedAt).format("llll");
 
    return (
       <View style={styles.containerFeed}>
          <View style={styles.authorContainer}>
-            <Text textBreakStrategy="highQuality" style={styles.byline}>{byline}</Text>
+            <Text numberOfLines={1} style={styles.byline}>{byline}</Text>
          </View>
          <View style={styles.articleInfo}>
             <Text style={styles.section}>{section}</Text>
@@ -29,9 +29,6 @@ const styles = StyleSheet.create({
       paddingHorizontal: 10,
       justifyContent: 'space-between',
       backgroundColor: '#051C2D',
-   },
-   authorContainer: {
-      flex: 1
    },
    section: {
       fontSize: 16,
