@@ -14,6 +14,7 @@ const ArticleList = ({ category, articles }) => {
    }
    const renderItem = ({ item: { id, section, subsection, title, byline, multimedia } }) => {
 
+      if (section === category) {
          return (
             <Article
                title={title}
@@ -25,16 +26,13 @@ const ArticleList = ({ category, articles }) => {
                      : require('../../assets/no-image-available.png')
                }
             />
-
          )
-      
+      }
    }
 
-   const filteredArticles = articles.filter(article => article.section === category);
-   
    return (
       <FlatList
-         data={filteredArticles}
+         data={articles}
          renderItem={renderItem}
          keyExtractor={keyExtractor}
       />
