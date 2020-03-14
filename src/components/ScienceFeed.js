@@ -18,8 +18,13 @@ const ScienceFeed = ({ route, addArticles, sciencesArticles }) => {
       const abortController = new AbortController();
       const signal = abortController.signal;
 
-      fetchScienceArticles(setLoading, addArticles, signal);
-
+      fetchScienceArticles(signal, (err, articles) => {
+         if (err) {
+            return console.log(err.message)
+         }
+         addArticles(articles);
+         setLoading(false)
+      });
       return () => abortController.abort();
    }, [loading], [sciencesArticles]);
 

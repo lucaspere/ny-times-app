@@ -5,7 +5,7 @@ import {
    StyleSheet,
 } from 'react-native';
 import { connect } from 'react-redux';
-import {addTechonologiesArticles} from '../redux/actions/articleActions';
+import { addTechonologiesArticles } from '../redux/actions/articleActions';
 
 import { fetchTechnologyArticles } from '../utils/api';
 
@@ -20,7 +20,13 @@ const TechnologyFeed = ({ technologiesArticles, route, addArticles }) => {
       const abortController = new AbortController();
       const signal = abortController.signal;
 
-      fetchTechnologyArticles(setLoading, addArticles, signal);
+      fetchTechnologyArticles(signal, (err, articles) => {
+         if (err) {
+            return console.log(err.message)
+         }
+         addArticles(articles);
+         setLoading(false)
+      });
 
       return () => abortController.abort();
    }, [loading], [technologiesArticles]);

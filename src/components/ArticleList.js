@@ -3,7 +3,7 @@ import { FlatList } from 'react-native';
 
 import Article from './Article';
 
-const ArticleList = ({ category, articles }) => {
+const ArticleList = ({ articles }) => {
 
    const keyExtractor = ({ uri }) => {
 
