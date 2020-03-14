@@ -13,22 +13,20 @@ const ArticleList = ({ category, articles }) => {
    }
    const renderItem = ({ item }) => {
 
-      if (item.section === category) {
-         return (
-            <Article
-               link={item.url}
-               abstract={item.abstract}
-               date={item.published_date}
-               title={item.title}
-               section={item.section}
-               byline={item.byline}
-               image={
-                  item.multimedia ? { uri: item.multimedia[0].url }
-                     : require('../../assets/no-image-available.png')
-               }
-            />
-         )
-      }
+      return (
+         <Article
+            link={item.url}
+            abstract={item.abstract}
+            date={item.published_date}
+            title={item.title}
+            section={item.section}
+            byline={item.byline}
+            image={
+               item.multimedia ? { uri: item.multimedia[0].url }
+                  : require('../../assets/no-image-available.png')
+            }
+         />
+      )
    }
 
    return (

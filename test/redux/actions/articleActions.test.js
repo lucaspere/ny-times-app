@@ -3,7 +3,7 @@ import { act } from 'react-test-renderer';
 
 
 
-test("espera-se adicionar o title, abstract e link", () => {
+test("A configuração deve retornar um action object com os valores de title, abstract e link fornecidos", () => {
    const action = setAbstract("Testando o ny-times app", "bora", 'www.o.com');
    expect(action).toEqual({
       type: "SET_ABSTRACT",
@@ -13,7 +13,7 @@ test("espera-se adicionar o title, abstract e link", () => {
    });
 });
 
-test("espera-se atribuir o valor true na propriedade showModal ", () => {
+test("A configuração deve retornar uma action objeto com o valor do showModal em true ", () => {
    const action = openModal();
    expect(action).toEqual({
       type: "OPEN_MODAL",
@@ -21,7 +21,7 @@ test("espera-se atribuir o valor true na propriedade showModal ", () => {
    });
 });
 
-test("espera-se atribuir o valor false na propriedade showModal ", () => {
+test("A configuração deve retornar uma action objeto com o valor do showModal em false", () => {
    const action = closeModal();
    expect(action).toEqual({
       type: "CLOSE_MODAL",
@@ -29,7 +29,7 @@ test("espera-se atribuir o valor false na propriedade showModal ", () => {
    });
 });
 
-test("espera-se adicionar artigos na propriedade technologiesArticles", () => {
+test("A configuração deve retornar um action object com os de technologiesArticles fornecidos", () => {
    const fakeArticle = [
       {
          section: "technology",
@@ -49,7 +49,7 @@ test("espera-se adicionar artigos na propriedade technologiesArticles", () => {
    })
 });
 
-test("espera-se adicionar artigos na propriedade sciencesArticles", () => {
+test("A configuração deve retornar um action object com os de A configuração deve retornar um action object com os de technologiesArticles fornecidos fornecidos", () => {
    const fakeArticle = [
       {
          section: "science",
