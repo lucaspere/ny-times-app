@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, ActivityIndicator, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import { setModal, setAbstract } from '../redux/actions/articleActions';
+import { setAbstract, openModal } from '../redux/actions/articleActions';
 
 import InfoRow from './InfoRow';
 
@@ -11,7 +11,7 @@ const Article = (props) => {
 
    const { setAbstractValue, setModalValue } = props;
 
-   const { title, image, section, byline, date, abstract } = props;
+   const { title, image, section, byline, date, abstract, link } = props;
 
    return (
       <View style={styles.articleContainer}>
@@ -34,7 +34,7 @@ const Article = (props) => {
             <TouchableOpacity
                onPress={() => {
                   setModalValue()
-                  setAbstractValue(title, abstract);
+                  setAbstractValue(title, abstract, link);
                }}
             >
                <Text style={styles.title}>{title}</Text>
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = ({ showModal }) => ({ showModal });
 const mapDispatchTopProps = (dispatch) => ({
-   setModalValue: () => dispatch(setModal()),
-   setAbstractValue: (title, abstract) => dispatch(setAbstract(title, abstract))
+   setModalValue: () => dispatch(openModal()),
+   setAbstractValue: (title, abstract, link) => dispatch(setAbstract(title, abstract, link))
 })
 export default connect(mapStateToProps, mapDispatchTopProps)(Article);

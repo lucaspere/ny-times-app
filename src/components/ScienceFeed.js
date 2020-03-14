@@ -4,23 +4,24 @@ import {
    ActivityIndicator,
    StyleSheet,
 } from 'react-native';
+import { connect } from 'react-redux';
 
+import { addSciencesArticles } from '../redux/actions/articleActions';
 import ArticleList from './ArticleList';
 import { fetchScienceArticles } from '../utils/api';
 
-const ScienceFeed = ({ route, navigation }) => {
+const ScienceFeed = ({ route, addArticles, sciencesArticles }) => {
 
-   const [articles, setArticles] = useState([]);
    const [loading, setLoading] = useState(true);
 
    useEffect(() => {
       const abortController = new AbortController();
       const signal = abortController.signal;
 
-      fetchScienceArticles(setLoading, setArticles, signal);
+      fetchScienceArticles(setLoading, addArticles, signal);
 
       return () => abortController.abort();
-   }, [loading], [articles]);
+   }, [loading], [sciencesArticles]);
 
    if (loading) {
       return (
@@ -32,7 +33,7 @@ const ScienceFeed = ({ route, navigation }) => {
 
    return (
       <SafeAreaView style={styles.container}>
-         <ArticleList articles={articles}
+         <ArticleList articles={sciencesArticles}
             category={route.name.toLowerCase()} />
       </SafeAreaView>
    )
@@ -46,4 +47,9 @@ const styles = StyleSheet.create({
    }
 });
 
-export default ScienceFeed;
+const mapStateToProps = ({ sciencesArticles }) => ({ sciencesArticles });
+const mapDispatchToProps = (dispatch) => ({
+   addArticles: (articles) => dispatch(addSciencesArticles(articles))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ScienceFeed);

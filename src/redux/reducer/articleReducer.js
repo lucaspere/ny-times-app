@@ -1,8 +1,10 @@
 const defaultState = {
    showModal: false,
    title: '',
+   link: '',
    abstract: '',
-   articles: [],
+   technologiesArticles: [],
+   sciencesArticles: []
 }
 
 export default (state = defaultState, action) => {
@@ -11,12 +13,28 @@ export default (state = defaultState, action) => {
          return {
             ...state,
             title: action.title,
-            abstract: action.abstract
+            abstract: action.abstract,
+            link: action.link
          }
-      case 'SET_MODAL':
+      case 'CLOSE_MODAL':
          return {
             ...state,
-            showModal: !state.showModal
+            showModal: false
+         }
+      case 'OPEN_MODAL':
+         return {
+            ...state,
+            showModal: true
+         }
+      case 'ADD_TECHNOLOGIES_ARTICLES':
+         return {
+            ...state,
+            technologiesArticles: action.technologiesArticles
+         }
+      case 'ADD_SCIENCES_ARTICLES':
+         return {
+            ...state,
+            sciencesArticles: action.sciencesArticles
          }
       default:
          return state

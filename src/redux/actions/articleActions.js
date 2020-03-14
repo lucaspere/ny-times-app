@@ -1,14 +1,30 @@
-const ADD_ARTICLES = 'ADD_ARTICLES';
-const FETCHING_ARTICLES = 'FETCHING_ARTICLES';
-const SET_MODAL = "SET_MODAL";
+const OPEN_MODAL = "OPEN_MODAL";
+const CLOSE_MODAL = "CLOSE_MODAL";
 const SET_ABSTRACT = "SET_ABSTRACT";
+const ADD_TECHNOLOGIES_ARTICLES = "ADD_TECHNOLOGIES_ARTICLES";
+const ADD_SCIENCES_ARTICLES = "ADD_SCIENCES_ARTICLES";
 
-export const setAbstract = (title, abstract) => ({
+export const setAbstract = (title, abstract, link) => ({
    type: SET_ABSTRACT,
    title,
-   abstract
+   abstract,
+   link
 })
 
-export const setModal = () => ({
-   type: SET_MODAL
+export const openModal = () => ({
+   type: OPEN_MODAL
+})
+
+export const closeModal = () => ({
+   type: CLOSE_MODAL
+});
+
+export const addTechonologiesArticles = (technologiesArticles = []) => ({
+   type: ADD_TECHNOLOGIES_ARTICLES,
+   technologiesArticles
+});
+
+export const addSciencesArticles = (sciencesArticles = []) => ({
+   type: ADD_SCIENCES_ARTICLES,
+   sciencesArticles
 })

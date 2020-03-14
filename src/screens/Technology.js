@@ -11,7 +11,6 @@ const Technology = (props) => {
          <TechnologyFeed
             route={props.route}
          />
-         <ModalLayout />
       </View>
 
    )

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Modal, TouchableOpacity, Text, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import { setModal } from '../redux/actions/articleActions';
+import { closeModal } from '../redux/actions/articleActions';
+import { Linking } from 'expo';
 
-const ModalLayout = ({ title, abstract, showModal, isOpen }) => {
+const ModalLayout = ({ title, abstract, link, closeModal, isOpen }) => {
 
    const TouchableOpacityStyle = {
       width: 80,
@@ -16,15 +17,14 @@ const ModalLayout = ({ title, abstract, showModal, isOpen }) => {
       <Modal
          visible={isOpen}
          animationType="slide"
-         onRequestClose={() => showModal()}
+         onRequestClose={() => closeModal()}
       >
          <View style={styles.modalContainer}>
             <View style={styles.backBotton}>
                <TouchableOpacity
-                  onPress={() => showModal()}
+                  onPress={() => closeModal()}
                   style={TouchableOpacityStyle}
                >
-
                   <Text style={styles.textBotton}>Voltar</Text>
                </TouchableOpacity>
             </View>
@@ -32,6 +32,15 @@ const ModalLayout = ({ title, abstract, showModal, isOpen }) => {
             <View style={styles.bodyText}>
                <View style={{ marginTop: 20 }}>
                   <Text style={styles.modalTitle}>{title}</Text>
+               </View>
+               <View style={{ marginTop: 20 }}>
+                  <Text
+                     numberOfLines={1}
+                     ellipsizeMode="tail"
+                     style={styles.modalLink}
+                     onPress={() => Linking.openURL(link)}>
+                     {link}
+                  </Text>
                </View>
                <View style={{ marginTop: 10 }}>
                   <Text style={styles.modalAbstract}>{abstract}</Text>
@@ -48,12 +57,18 @@ const styles = StyleSheet.create({
       backgroundColor: '#051C2D'
    },
    modalTitle: {
-      fontSize: 40,
+      fontSize: 30,
       color: "#051C2D",
       fontWeight: 'bold'
    },
+   modalLink: {
+      fontSize: 15,
+      color: '#cc1235',
+      textDecorationLine: 'underline',
+   },
    modalAbstract: {
-      fontSize: 20,
+      fontSize: 18,
+      color: "rgba(5,28,45,0.9)"
    },
    backBotton: {
       marginTop: 10,
@@ -76,14 +91,15 @@ const styles = StyleSheet.create({
    }
 });
 
-const mapStateToProps = ({ title, abstract, showModal }) => ({
+const mapStateToProps = ({ title, abstract, link, showModal }) => ({
    title,
    abstract,
+   link,
    isOpen: showModal
 });
 
 const mapDispatchTopProps = (dispatch) => ({
-   showModal: () => dispatch(setModal())
+   closeModal: () => dispatch(closeModal())
 });
 
 export default connect(mapStateToProps, mapDispatchTopProps)(ModalLayout)

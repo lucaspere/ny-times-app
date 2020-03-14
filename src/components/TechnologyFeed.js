@@ -4,25 +4,26 @@ import {
    ActivityIndicator,
    StyleSheet,
 } from 'react-native';
+import { connect } from 'react-redux';
+import {addTechonologiesArticles} from '../redux/actions/articleActions';
 
 import { fetchTechnologyArticles } from '../utils/api';
 
 import ArticleList from './ArticleList';
 
 
-const TechnologyFeed = ({ route }) => {
+const TechnologyFeed = ({ technologiesArticles, route, addArticles }) => {
 
-   const [articles, setArticles] = useState([]);
    const [loading, setLoading] = useState(true);
 
    useEffect(() => {
       const abortController = new AbortController();
       const signal = abortController.signal;
 
-      fetchTechnologyArticles(setLoading, setArticles, signal);
+      fetchTechnologyArticles(setLoading, addArticles, signal);
 
       return () => abortController.abort();
-   }, [loading], [articles]);
+   }, [loading], [technologiesArticles]);
 
    if (loading) {
       return (
@@ -34,7 +35,7 @@ const TechnologyFeed = ({ route }) => {
 
    return (
       <SafeAreaView style={styles.container}>
-         <ArticleList articles={articles}
+         <ArticleList articles={technologiesArticles}
             category={route.name.toLowerCase()} />
       </SafeAreaView>
    )
@@ -48,4 +49,9 @@ const styles = StyleSheet.create({
    },
 });
 
-export default TechnologyFeed;
+const mapStateToProps = ({ technologiesArticles }) => ({ technologiesArticles });
+const mapDispatchToProps = (dispatch) => ({
+   addArticles: (articles) => dispatch(addTechonologiesArticles(articles))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TechnologyFeed);
