@@ -19,12 +19,12 @@ export default (state = defaultState, action) => {
       case 'CLOSE_MODAL':
          return {
             ...state,
-            showModal: false
+            showModal: action.showModal
          }
       case 'OPEN_MODAL':
          return {
             ...state,
-            showModal: true
+            showModal: action.showModal
          }
       case 'ADD_TECHNOLOGIES_ARTICLES':
          return {
