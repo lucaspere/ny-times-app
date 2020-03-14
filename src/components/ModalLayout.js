@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#051C2D'
    },
    modalTitle: {
-      fontSize: 40,
+      fontSize: 30,
       color: "#051C2D",
       fontWeight: 'bold'
    },
@@ -67,7 +67,8 @@ const styles = StyleSheet.create({
       textDecorationLine: 'underline',
    },
    modalAbstract: {
-      fontSize: 20,
+      fontSize: 18,
+      color: "rgba(5,28,45,0.9)"
    },
    backBotton: {
       marginTop: 10,
