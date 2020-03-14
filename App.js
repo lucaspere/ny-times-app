@@ -8,7 +8,6 @@ import ModalLayout from './src/components/ModalLayout';
 
 const store = storeConfig();
 
-store.subscribe(() => console.log(store.getState().showModal))
 const App = () => {
   return (
     <Provider store={store}>

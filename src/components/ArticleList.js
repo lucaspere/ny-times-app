@@ -16,6 +16,7 @@ const ArticleList = ({ category, articles }) => {
       if (item.section === category) {
          return (
             <Article
+               link={item.url}
                abstract={item.abstract}
                date={item.published_date}
                title={item.title}
