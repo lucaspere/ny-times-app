@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar corretanmente 1`] = `
+<Modal
+  animationType="slide"
+  hardwareAccelerated={false}
+  onRequestClose={[Function]}
+  visible={true}
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#051C2D",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "borderBottomColor": "yellow",
+          "borderBottomWidth": 0.5,
+          "height": 50,
+          "marginHorizontal": 15,
+          "marginTop": 10,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "borderColor": "#fff",
+            "borderWidth": 2,
+            "height": 40,
+            "opacity": 1,
+            "width": 80,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#fff",
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginTop": 3.5,
+              "textAlign": "center",
+            }
+          }
+        >
+          Voltar
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#fff",
+          "flex": 1,
+          "padding": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginTop": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#051C2D",
+              "fontSize": 30,
+              "fontWeight": "bold",
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "marginTop": 20,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          onPress={[Function]}
+          style={
+            Object {
+              "color": "#cc1235",
+              "fontSize": 15,
+              "textDecorationLine": "underline",
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "marginTop": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "rgba(5,28,45,0.9)",
+              "fontSize": 18,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+</Modal>
+`;

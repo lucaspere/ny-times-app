@@ -6,7 +6,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "jest": {
     "preset": "jest-expo",
@@ -24,7 +24,7 @@
     "expo": "~36.0.0",
     "expo-constants": "~8.0.0",
     "react": "~16.9.0",
-    "react-dom": "~16.9.0",
+    "react-dom": "^16.13.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
     "react-native-gesture-handler": "~1.5.0",
     "react-native-reanimated": "~1.4.0",
@@ -39,8 +39,12 @@
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "babel-preset-expo": "~8.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "jest-expo": "^36.0.1",
-    "react-test-renderer": "^16.13.0"
+    "jest-serializer-enzyme": "^1.0.0",
+    "react-test-renderer": "^16.13.0",
+    "redux-mock-store": "^1.5.4"
   },
   "private": true
 }

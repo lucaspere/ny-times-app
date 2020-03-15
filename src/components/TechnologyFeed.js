@@ -12,7 +12,7 @@ import { fetchTechnologyArticles } from '../utils/api';
 import ArticleList from './ArticleList';
 
 
-const TechnologyFeed = ({ technologiesArticles, route, addArticles }) => {
+export const TechnologyFeed = ({ technologiesArticles, addArticles }) => {
 
    const [loading, setLoading] = useState(true);
 
@@ -41,8 +41,7 @@ const TechnologyFeed = ({ technologiesArticles, route, addArticles }) => {
 
    return (
       <SafeAreaView style={styles.container}>
-         <ArticleList articles={technologiesArticles}
-            category={route.name.toLowerCase()} />
+         <ArticleList articles={technologiesArticles}/>
       </SafeAreaView>
    )
 }

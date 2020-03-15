@@ -10,7 +10,7 @@ import { addSciencesArticles } from '../redux/actions/articleActions';
 import ArticleList from './ArticleList';
 import { fetchScienceArticles } from '../utils/api';
 
-const ScienceFeed = ({ route, addArticles, sciencesArticles }) => {
+export const ScienceFeed = ({ route, addArticles, sciencesArticles }) => {
 
    const [loading, setLoading] = useState(true);
 

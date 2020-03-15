@@ -5,7 +5,7 @@ import { setAbstract, openModal } from '../redux/actions/articleActions';
 
 import InfoRow from './InfoRow';
 
-const Article = (props) => {
+export const Article = (props) => {
 
    const [loading, setLoading] = useState(true);
 

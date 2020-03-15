@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar corretanmente 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#051C2D",
+      "flexDirection": "column",
+      "height": 50,
+      "justifyContent": "space-between",
+      "paddingHorizontal": 10,
+    }
+  }
+>
+  <View>
+    <Text
+      numberOfLines={1}
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 16,
+          "textAlign": "center",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-evenly",
+        "padding": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 16,
+        }
+      }
+    />
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 16,
+        }
+      }
+    >
+      Sun, Mar 15, 2020 2:47 PM
+    </Text>
+  </View>
+</View>
+`;

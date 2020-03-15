@@ -5,7 +5,7 @@ import localizedFormat from 'dayjs/plugin/localizedFormat';
 
 dayjs.extend(localizedFormat);
 
-const InfoRow = ({ section, byline, publishedAt }) => {
+export const InfoRow = ({ section, byline, publishedAt }) => {
 
    const formmatedDate = dayjs(publishedAt).format("llll");
 

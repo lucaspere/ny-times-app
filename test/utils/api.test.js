@@ -11,7 +11,7 @@ test('Deve entregar um array com tecnologiesArticles de tamanho maior que 0', (d
       expect(data.length).toBeGreaterThan(0);
       done();
    });
-});
+}, 30000);
 
 test('Deve entregar um array com sciencesArticles de tamanho maior que 0', (done) => {
 
@@ -24,4 +24,4 @@ test('Deve entregar um array com sciencesArticles de tamanho maior que 0', (done
       expect(data.length).toBeGreaterThan(0);
       done();
    });
-});
+}, 30000);

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { closeModal } from '../redux/actions/articleActions';
 import { Linking } from 'expo';
 
-const ModalLayout = ({ title, abstract, link, closeModal, isOpen }) => {
+export const ModalLayout = ({ title, abstract, link, closeModal, isOpen }) => {
 
    const TouchableOpacityStyle = {
       width: 80,
