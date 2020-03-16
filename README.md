@@ -5,6 +5,11 @@
 - Projeto feito por mim para o teste de React Native Junior na [Compasso](https://www.linkedin.com/company/compasso/).
 - Exigências para esse projeto, [clique para abrir](https://github.com/recrutamento-compasso/teste-react-native)
 
+## Funcionalidades
+- O app consome a api Top Stories do The New York Times. À medida que os dados vão sendo atualizados, o app os renderizam dinâmicamente nas screens.
+- O app 'filtra' os dados em seções de technology e science e os mandam para serem renderizados nas screens correspondêntes.
+- Se o usuário clicar em alguma notícia, vai aparecer um modal cujos conteúdos são o título da notícia, um link para a página oficial do The New York Times e um resumo da notícia.
+
 ## Como iniciar o projeto
 
 ### Se você deseja somente testar o app, siga estes passos:
