@@ -34,6 +34,9 @@
 > cd NY-Times-app-Compasso
 > npm start
 ```
+ou se quiser iniciar os testes
+
+``> npm test``
 
 5. Com o aplicativo do Expo no seu smartphone, escanea o QR-Code que aparecerá no terminal.
 
@@ -82,8 +85,8 @@ Para criar esse aplicativo, foram usados as seguintes bibliotecas:
 - [Axios](https://github.com/axios/axios) - Ele nos permite fazer requisições HTTP assíncronas em navegadores e NodeJs.
 - [React Navigation](https://reactnavigation.org/) - Excelente biblioteca que nos oferece módulos as quais nos permite configurar telas, transferir dados entre componentes e muito mais.
 - [Redux](https://redux.js.org/) - Biblioteca que nos permite controlar o fluxo de state do app de maneira global e não no modo de parentesco entre componentes.
-- [Expo-SDK](https://docs.expo.io/versions/latest/sdk/overview/) - Uma enorme kit que nos oferece vários meios de ter acesso a recursos nativos do smartphone.
-- [dayjs](https://day.js.org/) - Biblioteca com funções imutáveis que nos permitem manipular datas.
+- [Expo-SDK](https://docs.expo.io/versions/latest/sdk/overview/) - Um enorme kit que nos oferece vários meios de ter acesso a recursos nativos do smartphone.
+- [dayjs](https://day.js.org/) - Biblioteca com funções imutáveis que nos permite manipular datas.
 
 #### Test
 Para testar esse aplicativo, foi usado o [Jestjs](https://jestjs.io/) que é uma framework de teste mantida pelo **Facebook** e [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) que é um renderizador de componente de React sem precisar do DOM.
