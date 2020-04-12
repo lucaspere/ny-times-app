@@ -1,9 +1,6 @@
 ![NY-Times Logo](https://theme.zdassets.com/theme_assets/968999/3f343ffc604a6c839e31d3f052b78abfa34ab588.png)
-# NY-Times-app-Compasso
+# ny-times-app
 ![preview do app](https://i.pinimg.com/564x/27/b3/cd/27b3cdb073600b777022bb03ac03bcba.jpg)
-
-- Projeto feito por mim para o teste de React Native Junior na [Compasso](https://www.linkedin.com/company/compasso/).
-- Exigências para esse projeto, [clique para abrir](https://github.com/recrutamento-compasso/teste-react-native)
 
 ## Funcionalidades
 - O app consome a api Top Stories do The New York Times. À medida que os dados vão sendo atualizados, o app os renderizam dinâmicamente nas screens.
